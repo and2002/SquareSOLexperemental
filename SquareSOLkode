@@ -1,0 +1,78 @@
+#include <iostream>
+#include <math.h>
+#include <cstdio>
+using namespace std;
+int SolveSquare (double a, double b, double c,
+double &x1, double &x2)
+ {
+ if (a == 0)
+  {
+  if (b == 0)
+   {
+    if (c == 0)
+    {
+    return 3;
+    }
+   }
+   
+  else /* if (b != 0) */
+   {
+    x1 = c / b;
+    return 1;
+   }
+  }
+ else /* if (a != 0) */
+  {
+   double desc = (b*b – 4*a*c);
+   if (desc == 0)
+   {
+    x1 = *x2 = b / (2*a);
+    return 1;
+   }
+   else
+   {
+    double sqrt_desc = sqrt (desc);
+    x1 = (b – sqrt_desc) / (2*a);
+    x2 = (b + sqrt_desc) / (2*a);
+    return 2;
+   }
+ }
+int main ()
+{
+  printf ("#Quadratic equation solve \n"
+          "#(c) Andrew,  AUGUST 2020 \n");
+
+  printf ("#please, enter parameters a, b, c \n");
+
+  double  a = 0, b = 0, c = 0 ;
+  scanf  ("%lg, %lg, %lg", &a, &b, &c);
+
+  double  X1 = 0, X2 = 0 ;
+  int Result = SolveSquare(a, b, c, &X1, &X2);
+
+  switch (Result)
+  {
+
+    case 0:
+    {
+     printf ("#This equation has not any solution :(( \n");
+    }
+    break;
+
+    case 1:
+    {
+     printf ("#This equation has only  1  solution    \n"
+             "X=\n", X1                                  );
+    }
+    break;
+
+    case 2:
+    {
+     printf ("#This equation has only  2  solution    \n"
+             "X1=", X1, "X2=", X2                        );
+    }
+    break;
+ }
+
+  return 0;
+}
