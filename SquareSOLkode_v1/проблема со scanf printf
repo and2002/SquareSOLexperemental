@@ -1,0 +1,14 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int main()
+ {
+  int experm = 0;
+  scanf("%d /n", experm);
+
+  int result=experm+2;
+  printf("bla-bla-bla \n");
+  printf("ansver %d \n",result);
+  return 0;
+}
